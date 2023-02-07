@@ -1,19 +1,26 @@
 <template>
-  <h1>{{ msg }}</h1>
+ 
+<!--TESTING-->
+<div class="card">
+  <img src="https://www.psu.edu/PSU-mark-navy.jpg" width=400/>
+  <h1>Penn State Hax</h1>
+  <p> Here is the class website for IST 256 and Haxpsu:
+  <a href="https://hax.psu.edu/">
 
-  <p>
-    <a href="https://vitejs.dev/guide/features.html" target="_blank">
-      Vite Documentation
-    </a>
-    |
-    <a href="https://v3.vuejs.org/" target="_blank">Vue 3 Documentation</a>
-  </p>
+  </a> </p>
+    <button class="button">
+      Details
+  </button>
+  <div class="buttonHolder">
+    <button class="toggle"> Add Frame </button>
 
-  <button type="button" @click="state.count++">count is: {{ state.count }}</button>
-  <p>
-    Edit
-    <code>components/HelloWorld.vue</code> to test hot module replacement.
-  </p>
+  <button class="chageBG">Change Background</button>
+
+   <button class="chageti">Change Title</button>
+
+  <button class="delete">Delete last card</button>
+</div>
+  </div>
 </template>
 
 <script setup>
@@ -27,7 +34,22 @@ const state = reactive({ count: 0 })
 </script>
 
 <style scoped>
-a {
-  color: #42b983;
-}
+.card{
+    border: 10px solid blue;
+    background-color: blue;
+    display: flex;
+    margin: 82px auto 32px;
+    padding: 0 16px;
+    max-width: 960px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+  .buttonHolder{
+    text-transform: uppercase;
+    padding: 8px;
+    flex-direction: column;
+    align-items: center;
+  }
 </style>
