@@ -1,9 +1,11 @@
 <template>
  
 <!--TESTING-->
+
 <div class="card">
-  <img src="https://www.psu.edu/PSU-mark-navy.jpg" width=400/>
+  <img class="image" src="https://www.psu.edu/PSU-mark-navy.jpg"/>
   <h1>Penn State Hax</h1>
+  
   <p> Here is the class website for IST 256 and Haxpsu:
   <a href="https://hax.psu.edu/">
 
@@ -11,11 +13,10 @@
     <button class="button">
       Details
   </button>
-  
+   
   </div>
 
-
-  <div class="buttonHolder">
+<div class="buttonHolder">
     <button class="add" v-on:click="duplicate"> Add Frame </button>
 
   <button class="chageBG" v-on:click="changeBackGround">Change Background</button>
@@ -24,6 +25,8 @@
 
   <button class="delete" v-on:click="deleteLast">Delete last card</button>
 </div>
+
+ 
 
 </template>
 
@@ -89,7 +92,7 @@ deleteLast(){
 
 <style scoped>
 .card{
-    border: 10px solid blue;
+    border: 10px solid rgb(8, 8, 8);
     background-color: blue;
     display: flex;
     margin: 82px auto 32px;
@@ -98,7 +101,10 @@ deleteLast(){
     flex-direction: column;
     align-items: center;
   }
-
+.image{
+  visibility: visible;
+  width: 400px;
+}
 
   .buttonHolder{
     text-transform: uppercase;
