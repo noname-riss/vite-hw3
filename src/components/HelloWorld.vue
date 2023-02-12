@@ -11,16 +11,20 @@
     <button class="button">
       Details
   </button>
-  <div class="buttonHolder">
-    <button class="toggle"> Add Frame </button>
-
-  <button class="chageBG">Change Background</button>
-
-   <button class="chageti">Change Title</button>
-
-  <button class="delete">Delete last card</button>
-</div>
+  
   </div>
+
+
+  <div class="buttonHolder">
+    <button class="add" v-on:click="duplicate"> Add Frame </button>
+
+  <button class="chageBG" v-on:click="changeBackGround">Change Background</button>
+
+   <button class="chageti" v-on:click="changetitle">Change Title</button>
+
+  <button class="delete" v-on:click="deleteLast">Delete last card</button>
+</div>
+
 </template>
 
 <script setup>
@@ -33,6 +37,56 @@ defineProps({
 const state = reactive({ count: 0 })
 </script>
 
+
+<script>
+export default {
+
+  methods: {
+    duplicate(){
+     
+  const itemToClone = document.querySelector('.card').cloneNode(true);
+  document.body.appendChild(itemToClone);
+},
+    
+changetitle(){
+ 
+  let name = prompt('Name: ');
+  if (name) {
+    document.querySelector('.card h1').innerText = name;
+  }
+},
+changeBackGround(){
+
+  document.querySelectorAll('.card').forEach((item, index) => {
+    if (!item.classList.contains('newBG')) {
+      item.classList.add('newBG');
+    }
+    else {
+      item.classList.remove('newBG');
+    }
+  });
+},
+
+deleteLast(){
+  
+  let wantsTo = confirm("Are you sure?");
+  if (wantsTo) {
+    if (document.querySelector('.card:last-child') !== document.querySelector('.card')) {
+      document.querySelector('.card:last-child').remove();      
+    }
+    else {
+      alert("Can't delete last card!");
+    }
+  }
+}
+}
+  }
+
+</script>
+
+
+
+
 <style scoped>
 .card{
     border: 10px solid blue;
@@ -40,7 +94,7 @@ const state = reactive({ count: 0 })
     display: flex;
     margin: 82px auto 32px;
     padding: 0 16px;
-    max-width: 960px;
+    max-width: 400px;
     flex-direction: column;
     align-items: center;
   }
@@ -52,4 +106,12 @@ const state = reactive({ count: 0 })
     flex-direction: column;
     align-items: center;
   }
+
+  .card:hover{
+  background-color:grey;
+}
+
+.newBG{
+  background-color:white;
+}
 </style>
